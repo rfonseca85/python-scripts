@@ -1,7 +1,12 @@
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import numpy as np
+import webbrowser, sys, pyperclip
 
-x = np.linspace(0, 20, 100)
-plt.plot(x, np.sin(x))
-plt.show()
+
+if len(sys.argv) > 1:
+    # Get address from command line.
+    address = ' '.join(sys.argv[1:])
+else:
+    # Get address from clipboard.
+    address = pyperclip.paste()
+
+webbrowser.open('https://www.google.com/maps/place/' + address)
+
